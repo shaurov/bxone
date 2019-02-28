@@ -2,9 +2,16 @@
 
 {% block body %}
 	{% for post in posts %}
-		<h2>{{ post.title }}</h2>
-		<p>By {{ post.author }} on {{ post.date_posted }}</p>
-		<p>{{ post.content }}</p>
+        <article class="media content-section">
+          <div class="media-body">
+            <h4><a class="article-title" href="#">{{ post.title }}</a></h4>
+            <div class="article-metadata">
+              <a class="mr-3" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y h:i A" }}</small>
+            </div>            
+            <p class="article-content" align="justify">{{ post.content }}</p>
+          </div>
+		</article>
 	{% endfor %}
 {% endblock %}
 
